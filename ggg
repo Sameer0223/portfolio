@@ -1,0 +1,127 @@
+<section id="projects" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center"><i class="fas fa-briefcase"></i> Projects</h2>
+    <div id="projectsCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#projectsCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#projectsCarousel" data-slide-to="1"></li>
+        <li data-target="#projectsCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 d-flex flex-column">
+                <img src="portfolio1 (1) (1).jpg" class="card-img-top" alt="Project One">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <h5 class="card-title text-left"><b>Portfolio</b></h5>
+                  <p class="card-text text-justify">
+                    Developed a responsive and visually appealing portfolio website showcasing bio, skills, internships, projects, and contact information, designed with a user-friendly interface optimized for desktop and mobile devices.
+                  </p>
+                  <div class="mt-auto text-center">
+                    <a href="https://sameer0223.github.io/portfolio/" class="btn btn-primary" target="_blank">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 d-flex flex-column">
+                <img src="65e57af638caa-over-50-of-indias-stock-market-investors-come-from-these-6-states-044036867-16x9 (1).jpg" class="card-img-top" alt="Project Two">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <h5 class="card-title text-left"><b>Stock Price Prediction</b></h5>
+                  <p class="card-text text-justify">
+                    Integrated LSTM neural networks, Random Forest regression, and sentiment analysis to predict stock prices accurately using historical data and feature engineering.
+                  </p>
+                  <div class="mt-auto text-center">
+                    <a href="#" class="btn btn-primary" target="_blank">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 d-flex flex-column">
+                <img src="calculator-L (1).jpg" class="card-img-top" alt="Project Three">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <h5 class="card-title text-left"><b>Calculator using Java Applets</b></h5>
+                  <p class="card-text text-justify">
+                    Created a Java Applet-based calculator with AWT and Swing components for intuitive arithmetic operations: addition, subtraction, multiplication, and division, ensuring user-friendly GUI and responsiveness.
+                  </p>
+                  <div class="mt-auto text-center">
+                    <a href="https://github.com/Sameer0223/calculator" target="_blank" class="btn btn-primary">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 d-flex flex-column">
+                <img src="splitchecks.jpg" class="card-img-top" alt="Project Four">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <h5 class="card-title text-left"><b>Expenses Split</b></h5>
+                  <p class="card-text text-justify">
+                    Built a web app for managing shared expenses, allowing users to input contributions and calculate individual balances in real-time, ensuring fair cost distribution.
+                  </p>
+                  <div class="mt-auto text-center">
+                    <a href="https://sameer0223.github.io/Trip-Exp/" target="_blank" class="btn btn-primary">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 d-flex flex-column">
+                <img src="nss (1).jpg" class="card-img-top" alt="Project Five">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <h5 class="card-title text-left" ><b> Club Website - In Progress</b></h5>
+                  <p class="card-text text-justify">
+                    Created a responsive NSS club website using the MERN stack, featuring club info, events, news, member profiles, and a secure login for exclusive content and form submissions.
+                  </p>
+                  <div class="mt-auto text-center">
+                    <a href="#" class="btn btn-primary"target="_blank">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add more carousel-item divs as needed -->
+      </div>
+      <a class="carousel-control-prev" href="#projectsCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0); width: 50px; height: 50px;"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#projectsCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0); width: 50px; height: 50px;"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+$(document).ready(function() {
+  // Ensure carousel items wrap around
+  $('#projectsCarousel').on('slide.bs.carousel', function (e) {
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 3; // Number of items per slide (adjust as per your design)
+    var totalItems = $('.carousel-item').length;
+
+    if (idx >= totalItems - (itemsPerSlide - 1)) {
+      var it = itemsPerSlide - (totalItems - idx);
+      for (var i = 0; i < it; i++) {
+        // append slides to end
+        if (e.direction == "left") {
+          $('.carousel-item').eq(i).appendTo('.carousel-inner');
+        } else {
+          $('.carousel-item').eq(0).appendTo('.carousel-inner');
+        }
+      }
+    }
+  });
+});
