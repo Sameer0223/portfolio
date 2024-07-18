@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Prepare data to send
     const formData = {
-      name: name,
-      email: email,
+      to_name: name,
+      from_name: email,
       message: message
     };
-
+    console.log(formData);
     // Send email using EmailJS
     emailjs.send('service_9idp3ca', 'template_gqbmoc3', formData)
       .then(function(response) {
